@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body {
+  font-family: Verdana;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+/* Start Material Overrides */
+.cdk-overlay-container {
+  z-index: 3000;
+}
+
+// .mat-form-field-appearance-legacy .mat-form-field-label {
+//   position: relative;
+//   top: -10px;
+// }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.mat-checkbox:not(.mat-checkbox-disabled).mat-accent
+  .mat-checkbox-ripple
+  .mat-ripple-element {
+  background-color: transparent;
+}
+
+.mat-checkbox-checkmark-path {
+  stroke: #000 !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: rgba(0, 0, 0, 0.54);
+}
+/* End Material Overrides */

@@ -1,0 +1,24 @@
+<mat-form-field class="example-full-width">
+	<input type="text" placeholder="Select Users" aria-label="Select Users" matInput [matAutocomplete]="auto" [formControl]="userControl" #userInput>
+  <mat-hint>Enter text to find users by name</mat-hint>
+</mat-form-field>
+
+<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+	<mat-option *ngFor="let user of filteredUsers | async" [value]="selectedUsers">
+		<div (click)="optionClicked($event, user)">
+			<mat-checkbox [checked]="user.selected" (change)="toggleSelection(user)" (click)="$event.stopPropagation()">
+				{{ user.firstname }} {{ user.lastname }}
+			</mat-checkbox>
+		</div>
+	</mat-option>
+</mat-autocomplete>
+
+<br><br>
+
+<label>Selected Users:</label>
+<mat-list dense>
+	<mat-list-item *ngIf="selectedUsers?.length === 0">(None)</mat-list-item>
+	<mat-list-item *ngFor="let user of selectedUsers">
+		{{ user.firstname }} {{ user.lastname }}
+	</mat-list-item>
+</mat-list>
